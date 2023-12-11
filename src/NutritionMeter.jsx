@@ -10,3 +10,34 @@ import {
   faTimes, 
 } from "@fortawesome/free-solid-svg-icons";
 
+const NutritionMeter = () => {
+    const defaultItemsDisplayed = [
+        {
+            id: 1,
+            name: "Chicken Sandwich",
+            calories: 200,
+            protein: 0.2,
+            carbs: 20,
+            fat: 3,
+            quantity: 1,
+        },
+    ];
+
+    const [nutritionItems, setNutritionItems] = useState(defaultItemsDisplayed);
+    const [newItem, setNewItem] = useState({
+        name: "",
+        calories: "",
+        protein: "",
+        carbs: "",
+        fat: "",
+    })
+
+    const [editItem, setEditItem] = useState(null);
+    const [totalCalories, setTotalCalories] = useState(0);
+    const [showWarning, setShowWarning] = useState(false);
+    const [inputError, setInputError] = useState(false);
+
+    useEffect(() => {
+        
+    })
+}
