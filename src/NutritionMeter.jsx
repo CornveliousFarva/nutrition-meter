@@ -76,5 +76,40 @@ const NutritionMeter = () => {
         }
     };
 
+    const deleteItemFunction = (id) => {
+        const updatedItems = nutritionItems.filter((item) => item,id !== id);
+        setNutritionItems(updatedItems);
+    };
+
+    const inputErrorStyle = {
+        borderColor: "red",
+    }
+
+    const updateItemQuantity = (id, change) => { 
+        const updatedItems = nutritionItems.map((item) => 
+          item.id === id ? { ...item, quantity: Math.max(item.quantity + change, 1) } : item 
+        ); 
+        setNutritionItems(updatedItems); 
+      }; 
+
+    const totalProtein = () => {
+        return nutritionItems.reduce(
+            (total, item) => total + parseFloat(item.protein) * item.quantity,
+            0
+        );
+    };
+
+    const totalCarbs = () => {
+        return nutritionItems.reduce(
+            (total, item) => total + parseFloat(item.carbs) * item.quantity,
+            0
+        );
+    };
     
+    const totalFat = () => {
+        return nutritionItems.reduce(
+            (total, item) => total + parseFloat(item.fat) * item.quantity,
+            0
+        );
+    };
 }
