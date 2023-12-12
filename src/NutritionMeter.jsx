@@ -38,6 +38,18 @@ const NutritionMeter = () => {
     const [inputError, setInputError] = useState(false);
 
     useEffect(() => {
-        
-    })
+      const calculateTotalCalories = nutritionItems.reduce(
+        (total, item) => total + parseFloat(item.calories) * item.quantity, 0
+      );
+      
+      setTotalCalories(calculateTotalCalories);
+
+      if (calculateTotalCalories > 1000) {
+        setShowWarning(true);
+      } else {
+        setShowWarning(false);
+      }
+    }, [nutritionItems])
+
+    
 }
