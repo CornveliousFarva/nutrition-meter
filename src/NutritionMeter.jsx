@@ -51,5 +51,30 @@ const NutritionMeter = () => {
       }
     }, [nutritionItems])
 
+    const addNutritionItem = () => {
+        if (
+            newItem.name &&
+            newItem.calories >= 0 &&
+            newItem.protein >= 0 &&
+            newItem.carbs >= 0 &&
+            newItem.fat >= 0
+        ) {
+            setNutritionItems([
+                ...nutritionItems,
+                { ...newItem, id: Date.now(), quantity: 1},
+            ]);
+            setNewItem({
+                name: "",
+                calories: "",
+                protein: "",
+                carbs: "",
+                fat: "",
+            });
+            setInputError(false);
+        } else {
+            setInputError(true);
+        }
+    };
+
     
 }
