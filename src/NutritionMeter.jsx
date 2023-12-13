@@ -112,4 +112,26 @@ const NutritionMeter = () => {
             0
         );
     };
+
+    return (
+        <div className="bg-green-200 min-h-screen"> 
+        <div className="container mx-auto p-4"> 
+          <h1 className="text-3xl font-semibold text-center mb-4"> 
+            GeeksforGeeks Nutrition Meter 
+          </h1> 
+          {showWarning && ( 
+            <div className="bg-red-500 text-white p-2 rounded-md text-center mb-4"> 
+              <FontAwesomeIcon icon={faTimes} className="mr-2" /> 
+              Total calories exceed recommended limit (1000 calories)! 
+            </div> 
+          )}
+
+          <div className="mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            </div>
+          </div>
+    </div>
+</div>
+    )
 }
