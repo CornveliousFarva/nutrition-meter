@@ -182,8 +182,9 @@ return (
 	<div className="bg-green-200 min-h-screen"> 
 	<div className="container mx-auto p-4"> 
 		<h1 className="text-3xl font-semibold text-center mb-4"> 
-		GeeksforGeeks Nutrition Meter 
+		Nutrition Meter 
 		</h1> 
+        <h2> Made with code from GeeksForGeeks</h2>
 		{showWarning && ( 
 		<div className="bg-red-500 text-white p-2 rounded-md text-center mb-4"> 
 			<FontAwesomeIcon icon={faTimes} className="mr-2" /> 
