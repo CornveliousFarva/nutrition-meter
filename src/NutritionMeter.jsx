@@ -232,9 +232,60 @@ const NutritionMeter = () => {
                   Clear All 
                 </button> 
               </div> 
-          </div> 
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"> 
+          {nutritionItems.map((item) => ( 
+            <div 
+              key={item.id} 
+              className="bg-white p-4 rounded-md shadow-md border-2 border-blue-400  
+              hover:border-blue-500 hover:shadow-lg transition transform hover:scale-105"
+            > 
+              <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2> 
+              <ul className="mt-3"> 
+                <li>Calories: {item.calories * item.quantity}</li> 
+                <li>Protein: {item.protein * item.quantity}g</li> 
+                <li>Carbs: {item.carbs * item.quantity}g</li> 
+                <li>Fat: {item.fat * item.quantity}g</li> 
+                <li className="flex items-center mt-2"> 
+                  <button 
+                    className="bg-green-500 text-white hover:bg-green-600 p-2 rounded-md font-semibol"
+                    onClick={() => updateItemQuantity(item.id, 1)} 
+                  > 
+                    <FontAwesomeIcon icon={faPlus} /> 
+                  </button> 
+                  <span className="mx-2">{item.quantity}</span> 
+                  <button 
+                    className="bg-red-500 text-white hover:bg-red-600 p-2 rounded-md font-semibol"
+                    onClick={() => updateItemQuantity(item.id, -1)} 
+                  > 
+                    <FontAwesomeIcon icon={faMinus} /> 
+                  </button> 
+                </li> 
+              </ul> 
+              <div className="mt-3 flex justify-between"> 
+                <button 
+                  className="bg-blue-500 text-white pd-2 rounded-md hover:bg-blue-600  
+                  font-semibold focus:outline-none text-xs"
+                  onClick={() => editItemFunction(item)} 
+                > 
+                  <FontAwesomeIcon icon={faEdit} /> Edit 
+                </button> 
+                <button 
+                  className="bg-red-500 text-white pd-2 rounded-md hover:bg-red-600  
+                  font-semibold focus:outline-none text-xs"
+                  onClick={() => deleteItemFunction(item.id)} 
+                > 
+                  <FontAwesomeIcon icon={faTrashAlt} /> Delete 
+                </button> 
+              </div> 
+            </div> 
+          ))} 
+        </div> 
 
         </div>
     </div>
+    </div>
+
     )
 }
